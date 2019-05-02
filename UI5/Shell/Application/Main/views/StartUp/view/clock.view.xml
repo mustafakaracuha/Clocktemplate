@@ -1,0 +1,73 @@
+<mvc:View
+    controllerName="SapUI5Tutorial.Application.Main.views.StartUp.controller.clock"
+    height="100%"
+    displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:f="sap.f"
+    xmlns:t="sap.ui.table">
+    <App>
+        <Page showHeader="false" class="backgroundimage-opacity">
+            <HBox class="mainmargin">
+                <HBox class="leftmain quikview-backgroundimg">
+                    <Carousel
+                        id="clockCarousel_Id"
+                        class="sapUiNoContentPadding"
+                        showPageIndicator="false">
+                         <pages>
+         
+                        </pages>
+                    </Carousel>
+                    <VBox class="discover-btn" visible="false"></VBox>
+                </HBox>
+                <FlexBox renderType="Bare" class="rightmain">
+                    <l:FixFlex class="fixFlex-style">
+                        <l:fixContent>
+                            <HBox class="icon-m">
+                                <HBox alignItems="Center" justifyContent="End" height="50px" width="100%">
+                                    <HBox class="icon-m">
+                                        <VBox class="spt-num"></VBox>
+                                        <core:Icon src="sap-icon://search" class="search-c" press="searchinput"></core:Icon>
+                                        <core:Icon src="sap-icon://cart-full" class="shop-c"></core:Icon>
+                                        <core:Icon src="sap-icon://menu2" class="menu-c" press="usermenu"></core:Icon>
+                                    </HBox>
+                                </HBox>
+                            </HBox>
+                        </l:fixContent>
+                        <l:flexContent>
+                            <ScrollContainer
+                                height="100%"
+                                width="100%"
+                                horizontal="false"
+                                vertical="true"
+                                focusable="false"
+                                class="sapUiNoContentPadding">
+                                <l:Grid
+                                    defaultSpan="XL4 L4 M6 S12"
+                                    hSpacing="0"
+                                    vSpacing="0"
+                                    content="{/clockModel}">
+                                    <VBox class="clock-item-style">
+                                        <Image src="{first_image}" class="pic-sizeminimalist"></Image>
+                                        <Text text="{name}" class="list-nameclass"/>
+                                        <Text text="{money}" class="list-moneyclass "/>
+                                        <VBox>
+                                            <Button text="QUICK VIEW" class="btn" press="quick"/>
+                                        </VBox>
+                                        <customData>
+                                            <core:CustomData key="clock" value="{class}" writeToDom="true"/>
+                                        </customData>
+                                    </VBox>
+                                </l:Grid>
+                            </ScrollContainer>
+                        </l:flexContent>
+                    </l:FixFlex>
+                </FlexBox>
+            </HBox>
+        </Page>
+    </App>
+</mvc:View>
